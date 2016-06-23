@@ -23,7 +23,7 @@ describe('Thermostat', function() {
 	});
 
   it('has a minimum of 10 degrees', function() {
-    for (var i = 0; i < 11; i++) { 
+    for (var i = 0; i < 11; i++) {
     thermostat.decreaseTemperature();
   }
   expect(thermostat.getCurrentTemperature()).toEqual(10);
@@ -71,7 +71,7 @@ describe('Thermostat', function() {
       thermostat.reset();
       expect(thermostat.getCurrentTemperature()).toEqual(20);
     });
-  }); 
+  });
 
   describe('displays color based on energy usage', function(){
     it ('displays green if temp is below 18', function(){
@@ -79,17 +79,16 @@ describe('Thermostat', function() {
         thermostat.decreaseTemperature();
         }
       expect(thermostat.energyUsage()).toEqual('low-usage');
-    }); 
-    it ('displays yellow if temp is between 18 and 25', function(){
+    });
+    it ('displays blue if temp is between 18 and 25', function(){
       expect(thermostat.energyUsage()).toEqual('medium-usage');
-    }); 
+    });
 
     it ('displays red if temp is above 25', function(){
         for (var i = 0; i < 6; i++) {
         thermostat.increaseTemperature();
         }
       expect(thermostat.energyUsage()).toEqual('high-usage');
-    }); 
+    });
   });
 });
-
